@@ -163,6 +163,8 @@ if (is_file($launchContextPath)) {
             'no_provider_name_branching_in_domain_runtime',
             'no_private_package_dependency',
         ];
+        $normalizedRequiredCaseIds = $requiredCaseIds;
+        sort($normalizedRequiredCaseIds);
         foreach (['fake-adapter-receipt.json', 'independent-adapter-receipt.json', 'asterisk-ami-adapter-receipt.json'] as $filename) {
             $path = $g43Evidence.'/'.$filename;
             if (!is_file($path)) {
@@ -171,8 +173,11 @@ if (is_file($launchContextPath)) {
             $receipt = json_decode((string) file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
             $caseResults = $receipt['case_results'] ?? [];
             $caseIds = array_column($caseResults, 'case_id');
+            $normalizedCaseIds = $caseIds;
+            sort($normalizedCaseIds);
             if (($receipt['verdict'] ?? null) !== 'conformant'
-                || $caseIds !== $requiredCaseIds
+                || $normalizedCaseIds !== $normalizedRequiredCaseIds
+                || count(array_unique($caseIds)) !== count($requiredCaseIds)
                 || count(array_filter($caseResults, static fn (array $result): bool => ($result['status'] ?? null) !== 'passed')) !== 0) {
                 $failures[] = 'g4_3_conformance_receipt_invalid:'.$filename;
             }
