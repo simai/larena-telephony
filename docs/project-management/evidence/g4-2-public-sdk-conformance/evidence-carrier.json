@@ -85,6 +85,12 @@
       "kind": "lockfile",
       "path": "composer.lock",
       "sha256": "sha256:fc713eb371240905e78682f951897b68f54fe5d2e503d8f732157c1399fe84cc"
+    },
+    {
+      "id": "technical_gatekeeper_review",
+      "kind": "review",
+      "path": "docs/project-management/evidence/g4-2-public-sdk-conformance/tester-verdict.json",
+      "sha256": "sha256:a8886361168c91712a00ec2cc3f7323b26810598a7e684556aeefea60bacc282"
     }
   ],
   "test_receipts": [
