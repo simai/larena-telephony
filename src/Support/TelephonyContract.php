@@ -56,6 +56,22 @@ final class TelephonyContract
     /** @var list<string> */
     public const COMMAND_RESULT_STATUSES = ['succeeded', 'denied', 'unsupported', 'uncertain', 'failed'];
 
+    /** @var list<string> */
+    public const CALL_DIRECTIONS = ['inbound', 'outbound', 'internal'];
+
+    /** @var list<string> */
+    public const CALL_STATES = [
+        'new',
+        'ringing',
+        'dialing',
+        'answered',
+        'held',
+        'ending',
+        'ended',
+        'failed',
+        'unknown_quarantined',
+    ];
+
     private function __construct()
     {
     }

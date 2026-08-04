@@ -9,6 +9,8 @@ use Larena\Telephony\Exceptions\ContractViolation;
 use Larena\Telephony\Support\CanonicalJson;
 use Larena\Telephony\Support\ContractVersion;
 use Larena\Telephony\Testing\FakeAdapterConformanceFixture;
+use Larena\Telephony\ValueObjects\CallParty;
+use Larena\Telephony\ValueObjects\CallSession;
 use Larena\Telephony\ValueObjects\EndpointDescriptor;
 
 $root = dirname(__DIR__);
@@ -66,6 +68,78 @@ try {
     $secretRejected = $exception->reasonCode === 'raw_secret_forbidden';
 }
 $check($secretRejected, 'Raw endpoint credential was accepted');
+
+$call = new CallSession(
+    'call.fixture-001',
+    'tenant.fixture',
+    'endpoint.fixture',
+    'larena.fake',
+    'sha256:'.str_repeat('a', 64),
+    'inbound',
+    'answered',
+    new CallParty('extension.support', 'extension'),
+    new CallParty('external.sha256-a1', 'external'),
+    new DateTimeImmutable('2026-08-03T09:00:00+00:00'),
+    new DateTimeImmutable('2026-08-03T09:00:03+00:00'),
+    null,
+    'correlation.fixture-call',
+    ['crm.contact-17'],
+    ['artifact://telephony/recording-17'],
+    2,
+);
+$callArray = $call->toArray();
+$check($callArray['call_id'] === 'call.fixture-001' && $callArray['version'] === 2, 'Normalized CallSession contract changed');
+$check(!array_key_exists('provider_call_ref', $callArray), 'CallSession exposed a raw provider call reference');
+
+$rawProviderReferenceRejected = false;
+try {
+    new CallSession(
+        'call.fixture-raw-provider',
+        'tenant.fixture',
+        'endpoint.fixture',
+        'larena.fake',
+        'provider-call-123',
+        'inbound',
+        'new',
+        new CallParty('extension.support', 'extension'),
+        new CallParty('external.sha256-a1', 'external'),
+        new DateTimeImmutable('2026-08-03T09:00:00+00:00'),
+        null,
+        null,
+        'correlation.fixture-raw-provider',
+        [],
+        [],
+        0,
+    );
+} catch (ContractViolation $exception) {
+    $rawProviderReferenceRejected = $exception->reasonCode === 'invalid_provider_call_ref_hash';
+}
+$check($rawProviderReferenceRejected, 'CallSession accepted a raw provider call reference');
+
+$invalidTimelineRejected = false;
+try {
+    new CallSession(
+        'call.fixture-invalid-timeline',
+        'tenant.fixture',
+        'endpoint.fixture',
+        'larena.fake',
+        'sha256:'.str_repeat('b', 64),
+        'outbound',
+        'answered',
+        new CallParty('extension.sales', 'extension'),
+        new CallParty('external.sha256-b2', 'external'),
+        new DateTimeImmutable('2026-08-03T09:00:05+00:00'),
+        new DateTimeImmutable('2026-08-03T09:00:01+00:00'),
+        null,
+        'correlation.fixture-invalid-timeline',
+        [],
+        [],
+        1,
+    );
+} catch (ContractViolation $exception) {
+    $invalidTimelineRejected = $exception->reasonCode === 'invalid_call_timestamp_order';
+}
+$check($invalidTimelineRejected, 'CallSession accepted reversed timestamps');
 
 $privateManifest = [
     'name' => 'vendor/unsafe-adapter',

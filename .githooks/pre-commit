@@ -22,4 +22,22 @@ if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
   exit 0
 fi
 
+# Revision-bound evidence cannot describe a source revision before that
+# revision exists. During an explicitly recorded renewal transition, the code
+# commit must pass every executable product gate except the evidence binding;
+# the immediately following evidence-only commit restores the full gate.
+launch_status="$("${LARENA_PHP_BIN:-php}" -r '$value = json_decode((string) file_get_contents(".larena/launch-context.json"), true, 512, JSON_THROW_ON_ERROR); echo $value["status"] ?? "";')"
+if [ "$launch_status" = "evidence_renewal_required" ]; then
+  staged_paths="$(git diff --cached --name-only)"
+  if printf '%s\n' "$staged_paths" | grep -Eq '^(src/|tests/|README\.md$|\.githooks/pre-commit$|\.larena/launch-context\.json$)'; then
+    run_composer validate:larena
+    run_composer lint
+    run_composer analyse
+    run_composer test
+    run_composer conformance:check
+    run_composer scope:check
+    exit 0
+  fi
+fi
+
 run_composer quality:gate
