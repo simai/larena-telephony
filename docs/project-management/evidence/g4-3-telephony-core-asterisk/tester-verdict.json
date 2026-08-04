@@ -1,0 +1,41 @@
+{
+  "schema": "larena.telephony.g4_3_tester_verdict.v1",
+  "schema_version": "1.0.0",
+  "batch": "G4.3",
+  "verdict": "PASS_WITH_NOTES",
+  "reviewer_role": "tester_gatekeeper",
+  "independence": "self_technical_gatekeeper_not_independent_product_or_application_acceptance",
+  "tested_revision": "7bc7852ad4d29bb2c168cb00ec4332af10072619",
+  "tested_tree": "e237ca1d69a6c87ac7a8cdf92f6cdd94b0a8d2d4",
+  "specification_revision": "5272bbc18d97e6fa60b96682942ebe5daa466856",
+  "technology_signature": "sha256:84d90cf011a10a2daef697796285fc0c716ea5fbf5b13f130ad37fef79cff7bf",
+  "receipt_refs": [
+    "docs/project-management/evidence/g4-3-telephony-core-asterisk/fake-adapter-receipt.json",
+    "docs/project-management/evidence/g4-3-telephony-core-asterisk/independent-adapter-receipt.json",
+    "docs/project-management/evidence/g4-3-telephony-core-asterisk/asterisk-ami-adapter-receipt.json",
+    "docs/project-management/evidence/g4-3-telephony-core-asterisk/asterisk-ami-core-receipt.json",
+    "docs/project-management/evidence/g4-3-telephony-core-asterisk/dependency-boundary.json"
+  ],
+  "accepted_claims": [
+    "The provider-neutral endpoint, event-ingress and call-session slice compiles and passes PHPStan level 8 at the exact tested revision.",
+    "Fake, independently packaged demo and in-package Asterisk AMI fixtures pass the same unchanged fourteen public conformance cases.",
+    "The Asterisk AMI fixture profile maps four documented actions and keeps answer, hold and resume unsupported.",
+    "Duplicate and reordered events produce one logical call timeline without reopening terminal state.",
+    "Rejected provider responses are failed and timeout, disconnect, transport exception and correlation uncertainty are never success.",
+    "Canonical events and evidence retain hashes and Larena identities rather than raw provider payload, channel, number or secret values.",
+    "The implementation introduces no network transport, persistence, migration, private dependency or entitlement coupling."
+  ],
+  "notes": [
+    "Asterisk behavior is demonstrated by sanitized offline fixtures only; no PBX interoperability test was performed.",
+    "The independently packaged demo adapter remains maintained in the same repository and is not an external vendor acceptance.",
+    "Service-provider discovery is a package-level composition check, not a root Larena application run."
+  ],
+  "blockers": [
+    "No independent product or application reviewer has accepted this batch.",
+    "The package is not composed into the aggregate workspace or root Larena application.",
+    "No live PBX, credential, network transport, release or production evidence exists.",
+    "AI voice, media, recording, transcription, CRM and remote connector scopes remain closed."
+  ],
+  "maximum_claim": "tests_passed_package_scope",
+  "next_transition": "cross_repository_evidence_intake_without_readiness_promotion"
+}

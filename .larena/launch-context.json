@@ -85,7 +85,7 @@
   ],
   "evidence_path": "docs/project-management/evidence/g4-3-telephony-core-asterisk/",
   "graph_sync_proposal_path": "docs/project-management/evidence/g4-3-telephony-core-asterisk/graph-sync-proposal.json",
-  "status": "implementation_in_progress",
+  "status": "implemented_pending_acceptance",
   "coding_allowed": true,
   "coding_started": true,
   "repository_enforcement_installed": true,
@@ -97,6 +97,10 @@
     "reason": "G4.3 explicitly forbids database access and migrations"
   },
   "coding_branch": "codex/telephony-core-asterisk-ami",
-  "next_transition": "implemented_pending_acceptance",
+  "code_revision": "7bc7852ad4d29bb2c168cb00ec4332af10072619",
+  "code_tree": "e237ca1d69a6c87ac7a8cdf92f6cdd94b0a8d2d4",
+  "code_surface_sha256": "sha256:64f3337df3ec3cd769af3824716685e58f6f9037acc71ffb9df52c2459a95ccc",
+  "maximum_claim": "tests_passed_package_scope",
+  "next_transition": "cross_repository_evidence_intake",
   "remote_push_status": "remote_not_configured"
 }

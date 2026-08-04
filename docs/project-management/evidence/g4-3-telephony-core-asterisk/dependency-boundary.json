@@ -1,0 +1,46 @@
+{
+    "base_package": {
+        "base_package_self_check": true,
+        "commercial_entitlement_required": false,
+        "composer_package": "larena/telephony",
+        "direct_larena_dependencies": [],
+        "fingerprint": "sha256:c0e416dda27b8437d02904817cbe2160ceb5c00b2bf8dbf68b1348cb989f88af",
+        "private_access_required": false,
+        "requirements": {
+            "illuminate/contracts": "^13.0",
+            "illuminate/support": "^13.0",
+            "php": "^8.3",
+            "phpstan/phpstan": "^2.0"
+        },
+        "status": "passed",
+        "violations": []
+    },
+    "independent_package": {
+        "base_package_self_check": false,
+        "commercial_entitlement_required": false,
+        "composer_package": "acme/larena-telephony-demo-adapter",
+        "direct_larena_dependencies": [
+            "larena/telephony"
+        ],
+        "fingerprint": "sha256:c17231e605bd7e8304f16f9be8715e314f930b787a71025a0c4c9b9df412a222",
+        "private_access_required": false,
+        "requirements": {
+            "illuminate/support": "^13.0",
+            "larena/telephony": "^1.0",
+            "php": "^8.3"
+        },
+        "status": "passed",
+        "violations": []
+    },
+    "metamorphic_requirement_order": {
+        "fingerprint": "sha256:c17231e605bd7e8304f16f9be8715e314f930b787a71025a0c4c9b9df412a222",
+        "status": "passed"
+    },
+    "nonclaims": [
+        "Dependency conformance proves the tested Composer boundary only.",
+        "It does not certify vendor code, security, PBX connectivity or production eligibility."
+    ],
+    "schema": "larena.telephony.adapter_dependency_boundary.v1",
+    "schema_version": "1.0.0",
+    "status": "passed"
+}

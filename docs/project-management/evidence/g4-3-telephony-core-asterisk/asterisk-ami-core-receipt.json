@@ -1,0 +1,67 @@
+{
+    "checks": 63,
+    "failures": [],
+    "nonclaims": [
+        "This receipt uses an injectable in-memory fixture transport and does not open a socket or connect to a PBX.",
+        "Action acknowledgement is not proof of a call outcome, application runtime acceptance or production eligibility.",
+        "No credentials, raw provider payloads, phone numbers, channels or provider identifiers are recorded in this receipt."
+    ],
+    "observations": {
+        "actions": {
+            "fingerprints": {
+                "dtmf": "sha256:1ec9f96d2af902cfeb6c12310c7ab1a1cea6230b1c02c8faa7a7c9137b4ea4e3",
+                "hangup": "sha256:071c30627dbb5df7db146ba951eef905d8c02035f1e20968261182c4e533e036",
+                "originate": "sha256:118a2ecc3cf805c06d3611986a5a51dcbfda472937f0708912a5b6ea3b7af601",
+                "transfer": "sha256:c4daeabb5ccaf55cc6b671fc631cf8eb30145c05731e60bda23404177ef94dce"
+            },
+            "mapping": {
+                "dtmf": "PlayDTMF",
+                "hangup": "Hangup",
+                "originate": "Originate",
+                "transfer": "Redirect"
+            },
+            "unsupported": [
+                "answer",
+                "hold",
+                "resume"
+            ]
+        },
+        "conformance": {
+            "adapter_key": "larena.asterisk_ami",
+            "case_count": 14,
+            "receipt_fingerprint": "sha256:ac5bc471480206b99d398ed1dcd09c8f3a2a983540b1140046fbc54b59d6560b",
+            "verdict": "conformant"
+        },
+        "event_projection": {
+            "accepted_lifecycle_events": 7,
+            "duplicate_status": "duplicate",
+            "late_answer_state": "ended",
+            "logical_session_count": 1,
+            "normalized_payload_keys": [
+                "direction",
+                "local_party",
+                "remote_party",
+                "state"
+            ],
+            "reordered_state": "answered",
+            "terminal_regression_status": "ignored",
+            "terminal_state": "ended"
+        },
+        "failure_injection": {
+            "disconnected": "uncertain",
+            "exception": "uncertain",
+            "mismatched": "uncertain",
+            "rejected": "failed",
+            "timeout": "uncertain",
+            "uncorrelated": "uncertain"
+        },
+        "metamorphic": {
+            "repeat_status": "byte_identical",
+            "scenario_fingerprint": "sha256:eda470fc7826118a3659e8fc3b3f21dbe960e9481f67d1185b3d08978dee2455"
+        }
+    },
+    "schema": "larena.telephony.asterisk_ami_core_test_receipt.v1",
+    "schema_version": "1.0.0",
+    "status": "passed",
+    "target": "Asterisk 22.x LTS AMI sanitized offline fixtures"
+}

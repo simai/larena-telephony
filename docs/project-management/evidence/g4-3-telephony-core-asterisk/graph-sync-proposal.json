@@ -1,0 +1,59 @@
+{
+  "schema": "larena.graph_sync_proposal.v1",
+  "schema_version": "1.0.0",
+  "status": "proposal_only",
+  "source": {
+    "repository": "simai/larena-telephony",
+    "revision": "7bc7852ad4d29bb2c168cb00ec4332af10072619",
+    "tree": "e237ca1d69a6c87ac7a8cdf92f6cdd94b0a8d2d4",
+    "specification_revision": "5272bbc18d97e6fa60b96682942ebe5daa466856",
+    "technology_signature": "sha256:84d90cf011a10a2daef697796285fc0c716ea5fbf5b13f130ad37fef79cff7bf"
+  },
+  "proposals": [
+    {
+      "id": "telephony_g4_3_package_scope_features",
+      "operation": "extend_partial_implementation_mapping",
+      "package": "larena/telephony",
+      "feature_refs": [
+        "telephony.adapter_registry",
+        "telephony.connection_endpoint_registry",
+        "telephony.call_session_runtime",
+        "telephony.event_ingress",
+        "telephony.call_control"
+      ],
+      "evidence_ref": "docs/project-management/evidence/g4-3-telephony-core-asterisk/evidence-carrier.json",
+      "maximum_readiness": "tests_passed_package_scope"
+    },
+    {
+      "id": "telephony_asterisk_ami_reference_fixture",
+      "operation": "record_reference_adapter_fixture_evidence",
+      "adapter_key": "larena.asterisk_ami",
+      "target": "Asterisk 22.x LTS AMI",
+      "transport": "injectable_offline_fixture_only",
+      "conformance_case_count": 14,
+      "pbx_connected": false
+    },
+    {
+      "id": "telephony_g4_3_outcome_evidence",
+      "operation": "attach_evidence_carrier",
+      "outcome_id": "larena.outcome.telephony.adapter_call_control.v1",
+      "acceptance_id": "larena.acceptance.telephony.adapter_call_control.vertical_3e822f24f29e51e2.v1",
+      "evidence_ref": "docs/project-management/evidence/g4-3-telephony-core-asterisk/evidence-carrier.json"
+    }
+  ],
+  "must_not_promote": [
+    "workspace_presence",
+    "root_application_runtime",
+    "independently_accepted",
+    "pbx_connected",
+    "network_transport_available",
+    "ai_voice_available",
+    "released",
+    "production_eligible"
+  ],
+  "apply_authority": "larena-specs_graph_owner_only_after_revision_schema_and_evidence_validation",
+  "nonclaims": [
+    "The package repository cannot write canonical Larena Specs or Mirai Graph state directly.",
+    "This proposal does not establish workspace, application, PBX, independent acceptance, release or production readiness."
+  ]
+}

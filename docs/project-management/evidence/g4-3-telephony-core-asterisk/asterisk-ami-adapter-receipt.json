@@ -1,0 +1,173 @@
+{
+    "adapter_key": "larena.asterisk_ami",
+    "case_results": [
+        {
+            "case_id": "capability_truthfulness",
+            "failure": null,
+            "observed": {
+                "reason": "capability_handler_mismatch"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "command_access_before_dispatch",
+            "failure": null,
+            "observed": {
+                "dispatch_count": 0,
+                "status": "denied"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "command_idempotency",
+            "failure": null,
+            "observed": {
+                "dispatch_count": 1,
+                "status": "succeeded"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "contract_version_compatibility",
+            "failure": null,
+            "observed": {
+                "reason": "incompatible_contract_version"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "duplicate_and_reordered_event_idempotency",
+            "failure": null,
+            "observed": {
+                "acceptance": [
+                    true,
+                    false,
+                    true
+                ],
+                "ordered_event_types": [
+                    "call.created",
+                    "call.dialing"
+                ]
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "endpoint_schema_validation",
+            "failure": null,
+            "observed": {
+                "invalid_errors": [
+                    "unknown_endpoint_field:host"
+                ],
+                "valid": true
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "health_and_degraded_state",
+            "failure": null,
+            "observed": {
+                "degraded": "degraded",
+                "healthy": "healthy"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "no_private_package_dependency",
+            "failure": null,
+            "observed": {
+                "base_package_self_check": true,
+                "commercial_entitlement_required": false,
+                "composer_package": "larena/telephony",
+                "direct_larena_dependencies": [],
+                "fingerprint": "sha256:c0e416dda27b8437d02904817cbe2160ceb5c00b2bf8dbf68b1348cb989f88af",
+                "private_access_required": false,
+                "requirements": {
+                    "illuminate/contracts": "^13.0",
+                    "illuminate/support": "^13.0",
+                    "php": "^8.3",
+                    "phpstan/phpstan": "^2.0"
+                },
+                "status": "passed",
+                "violations": []
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "no_provider_name_branching_in_domain_runtime",
+            "failure": null,
+            "observed": {
+                "identity_pair": [
+                    "larena.asterisk_ami",
+                    "vendor.equivalent"
+                ],
+                "signature": {
+                    "command_reason": "ami_action_acknowledged_not_call_outcome",
+                    "command_status": "succeeded",
+                    "endpoint_valid": true,
+                    "event_status": "accepted",
+                    "event_type": "call.dialing",
+                    "health_status": "healthy"
+                }
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "secret_and_provider_payload_redaction",
+            "failure": null,
+            "observed": {
+                "redacted_fingerprint": "sha256:8acc535f96928013d70aa44a9889424f3ef8fe41f92e315ea3611dc65523ead4",
+                "secret_rejected": true
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "uncertain_provider_result_not_success",
+            "failure": null,
+            "observed": {
+                "is_success": false,
+                "status": "uncertain"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "unique_registration",
+            "failure": null,
+            "observed": {
+                "duplicate_reason": "duplicate_adapter_key",
+                "registered_key": "larena.asterisk_ami"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "unknown_and_malformed_event_quarantine",
+            "failure": null,
+            "observed": {
+                "malformed": "malformed_provider_event",
+                "unknown": "unknown_provider_event"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "unsupported_command_denial",
+            "failure": null,
+            "observed": {
+                "dispatch_count": 0,
+                "status": "unsupported"
+            },
+            "status": "passed"
+        }
+    ],
+    "composer_package": "larena/telephony",
+    "contract_version": "1.0.0",
+    "environment_fingerprint": "sha256:ad467c96130314db2955e31f24b792474f538090a186a7f8159d0c8cefef75e1",
+    "fixture_fingerprint": "sha256:f3db845be9a5233f8b4603f2d3b017009ede96f2d32ef95c1190c7e051ced762",
+    "nonclaims": [
+        "Conformance proves compatibility with the tested public contract and deterministic fixtures only.",
+        "It is not security certification, PBX connectivity, carrier approval, runtime acceptance or production eligibility."
+    ],
+    "package_version": "1.1.0",
+    "schema": "larena.telephony.compatibility_receipt.v1",
+    "schema_version": "1.0.0",
+    "suite_version": "1.0.0",
+    "verdict": "conformant"
+}
