@@ -59,18 +59,18 @@
   ],
   "evidence_path": "docs/project-management/evidence/g4-2-public-sdk-conformance/",
   "graph_sync_proposal_path": "docs/project-management/evidence/g4-2-public-sdk-conformance/graph-sync-proposal.json",
-  "status": "evidence_renewal_required",
+  "status": "implemented_pending_cross_repository_acceptance",
   "coding_allowed": true,
   "coding_started": true,
   "repository_enforcement_installed": true,
   "repository_reset_pre_codegen": false,
-  "review_completed": false,
+  "review_completed": true,
   "test_database_policy": {
     "environment": "not_applicable",
     "persistence": "forbidden",
     "reason": "G4.2 is SDK and in-memory conformance only"
   },
   "coding_branch": "codex/telephony-sdk-conformance",
-  "next_transition": "bind_call_session_revision_evidence",
+  "next_transition": "cross_repository_evidence_intake",
   "remote_push_status": "remote_not_created"
 }

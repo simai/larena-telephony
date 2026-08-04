@@ -18,6 +18,7 @@
         "schemas/v2/evidence-carrier.schema.json",
         "schemas/v2/telephony-sdk-conformance-launch.schema.json",
         "specs/packages/telephony/contracts/call-command.json",
+        "specs/packages/telephony/contracts/call-session.json",
         "specs/packages/telephony/contracts/event-envelope.json",
         "specs/packages/telephony/contracts/telephony-adapter.json",
         "specs/packages/telephony/package.json",
@@ -34,8 +35,8 @@
     "repositories": [
       {
         "repository": "simai/larena-telephony",
-        "revision": "c6c5d39955935304ba03c176052ae4b074cd481f",
-        "tree": "76c187bcf195b2f01084a6dc9ac53d334ce13c89",
+        "revision": "a087b3e1b23be4cec5c8bcde9408628851f32300",
+        "tree": "637d9a140d0373e7d99b6f31e5cb244ef8d4409a",
         "paths": [
           "composer.json",
           "docs/project-management/evidence/g4-2-public-sdk-conformance/dependency-boundary.json",
@@ -60,7 +61,7 @@
       "id": "telephony_sdk_code_surface",
       "kind": "code",
       "path": "src/*",
-      "sha256": "sha256:ba6d8c96cfe55953f5b135aaf2906d956f76002a84e8e120fa4161b5bebcebf0"
+      "sha256": "sha256:9a1e6010e4b93a0653d365ff76054fbb9f2ef06e6fb32d5ceb0192d06e7b2213"
     },
     {
       "id": "fake_adapter_receipt",
@@ -90,7 +91,7 @@
       "id": "technical_gatekeeper_review",
       "kind": "review",
       "path": "docs/project-management/evidence/g4-2-public-sdk-conformance/tester-verdict.json",
-      "sha256": "sha256:a8886361168c91712a00ec2cc3f7323b26810598a7e684556aeefea60bacc282"
+      "sha256": "sha256:990283bde97b8cb3353488c2fef11a211dbc5bfc356379480fc001021a4b0a47"
     }
   ],
   "test_receipts": [
@@ -100,7 +101,7 @@
       "status": "passed",
       "command": "php scripts/run-conformance.php --check",
       "repository": "simai/larena-telephony",
-      "tested_revision": "c6c5d39955935304ba03c176052ae4b074cd481f",
+      "tested_revision": "a087b3e1b23be4cec5c8bcde9408628851f32300",
       "artifact_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/fake-adapter-receipt.json",
       "sha256": "sha256:f1ca48d397493f6866b234fe012545795eea64de34c35253ed468f67e5135fe6"
     },
@@ -110,7 +111,7 @@
       "status": "passed",
       "command": "php scripts/run-conformance.php --check",
       "repository": "simai/larena-telephony",
-      "tested_revision": "c6c5d39955935304ba03c176052ae4b074cd481f",
+      "tested_revision": "a087b3e1b23be4cec5c8bcde9408628851f32300",
       "artifact_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/independent-adapter-receipt.json",
       "sha256": "sha256:268f9e63cf61ecc6973fe4ab32e226493c56b99449ec6caf7dca5711a9e09a08"
     },
@@ -120,7 +121,7 @@
       "status": "passed",
       "command": "php tests/run.php",
       "repository": "simai/larena-telephony",
-      "tested_revision": "c6c5d39955935304ba03c176052ae4b074cd481f",
+      "tested_revision": "a087b3e1b23be4cec5c8bcde9408628851f32300",
       "artifact_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/dependency-boundary.json",
       "sha256": "sha256:977fb9a2a065d28f1620fc2172d59d6f43efc4817925965c6bdb822a66222f12"
     },
@@ -130,7 +131,7 @@
       "status": "passed",
       "command": "php scripts/run-conformance.php --check",
       "repository": "simai/larena-telephony",
-      "tested_revision": "c6c5d39955935304ba03c176052ae4b074cd481f",
+      "tested_revision": "a087b3e1b23be4cec5c8bcde9408628851f32300",
       "artifact_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/fake-adapter-receipt.json",
       "sha256": "sha256:f1ca48d397493f6866b234fe012545795eea64de34c35253ed468f67e5135fe6"
     }
@@ -140,7 +141,7 @@
     "independence": "technical_gatekeeper",
     "verdict": "PASS_WITH_NOTES",
     "artifact_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/tester-verdict.json",
-    "sha256": "sha256:a8886361168c91712a00ec2cc3f7323b26810598a7e684556aeefea60bacc282"
+    "sha256": "sha256:990283bde97b8cb3353488c2fef11a211dbc5bfc356379480fc001021a4b0a47"
   },
   "nonclaims": [
     "This carrier proves package-scope public SDK tests for the exact code revision only.",

@@ -4,8 +4,8 @@
   "status": "proposal_only",
   "source": {
     "repository": "simai/larena-telephony",
-    "revision": "c6c5d39955935304ba03c176052ae4b074cd481f",
-    "tree": "76c187bcf195b2f01084a6dc9ac53d334ce13c89",
+    "revision": "a087b3e1b23be4cec5c8bcde9408628851f32300",
+    "tree": "637d9a140d0373e7d99b6f31e5cb244ef8d4409a",
     "specification_revision": "9f95be6f1bf1d8d97de330321ccf9a41ce89ff24"
   },
   "proposals": [

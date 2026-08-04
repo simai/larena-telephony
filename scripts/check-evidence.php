@@ -72,11 +72,20 @@ if (is_file($carrierPath)) {
         $failures[] = 'evidence_carrier_contract_mismatch';
     }
     $repository = $carrier['bindings']['repositories'][0] ?? [];
-    if (($repository['revision'] ?? null) !== 'c6c5d39955935304ba03c176052ae4b074cd481f'
-        || ($repository['tree'] ?? null) !== '76c187bcf195b2f01084a6dc9ac53d334ce13c89') {
+    if (($repository['revision'] ?? null) !== 'a087b3e1b23be4cec5c8bcde9408628851f32300'
+        || ($repository['tree'] ?? null) !== '637d9a140d0373e7d99b6f31e5cb244ef8d4409a') {
         $failures[] = 'evidence_carrier_code_revision_mismatch';
     }
     foreach (($carrier['artifacts'] ?? []) as $artifact) {
+        if (($artifact['id'] ?? null) === 'telephony_sdk_code_surface') {
+            $sourceListing = shell_exec(
+                'git -C '.escapeshellarg($root).' ls-tree -r '.escapeshellarg((string) ($repository['revision'] ?? '')).' src'
+            );
+            if (!is_string($sourceListing) || 'sha256:'.hash('sha256', $sourceListing) !== ($artifact['sha256'] ?? null)) {
+                $failures[] = 'evidence_code_surface_hash_mismatch';
+            }
+            continue;
+        }
         $path = $root.'/'.($artifact['path'] ?? '');
         if (str_contains((string) ($artifact['path'] ?? ''), '*')) {
             continue;

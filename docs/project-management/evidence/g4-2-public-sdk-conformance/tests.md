@@ -1,6 +1,6 @@
 # G4.2 Test Evidence
 
-Tested code revision: `c6c5d39955935304ba03c176052ae4b074cd481f`
+Tested code revision: `a087b3e1b23be4cec5c8bcde9408628851f32300`
 
 Specs launch revision: `9f95be6f1bf1d8d97de330321ccf9a41ce89ff24`
 
@@ -12,11 +12,11 @@ database, credentials, customer data or application installation:
 | Gate | Command | Result |
 | --- | --- | --- |
 | metadata | `php scripts/validate-larena-package.php` | PASS |
-| syntax | `php scripts/lint.php` | PASS, 46 PHP files |
+| syntax | `php scripts/lint.php` | PASS, 48 PHP files |
 | static analysis | `php scripts/analyse.php` | PASS, PHPStan level 8 |
-| public tests | `php tests/run.php` | PASS, 14 aggregate assertions |
+| public tests | `php tests/run.php` | PASS, 18 aggregate assertions |
 | conformance freshness | `php scripts/run-conformance.php --check` | PASS |
-| scope | `php tools/larena-scope-check.php` | PASS, 63 source paths |
+| scope | `php tools/larena-scope-check.php` | PASS, 70 repository paths |
 
 Conformance results:
 
@@ -29,6 +29,7 @@ Conformance results:
 - denied and unsupported commands: zero adapter dispatches;
 - uncertain provider result: never success;
 - raw endpoint secret and private Telephony dependency: rejected;
+- raw provider call identifier and reversed call timestamps: rejected;
 - equivalent provider identities: equal non-identity behavior signature;
 - reordered Composer requirements: equal dependency-boundary fingerprint.
 
