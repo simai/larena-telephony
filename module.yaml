@@ -1,16 +1,22 @@
 package: larena/telephony
 title: Larena Telephony
-status: sdk_conformance_implemented
+status: core_asterisk_fixture_implemented
 cluster: product-packages-and-external-adapters
-batch: g4-2-public-sdk-conformance
+batch: g4-3-telephony-core-asterisk
 features:
   - telephony.adapter_registry
+  - telephony.connection_endpoint_registry
+  - telephony.call_session_runtime
+  - telephony.event_ingress
+  - telephony.call_control
 runtime:
   php: "^8.3"
   laravel: "^13.0"
-  persistence: none_sdk_and_in_memory_conformance_only
+  persistence: in_memory_contract_slice_only
+  network: forbidden_in_g4_3
 distribution:
   visibility: public
   license: Apache-2.0
 evidence:
-  path: docs/project-management/evidence/g4-2-public-sdk-conformance/
+  path: docs/project-management/evidence/g4-3-telephony-core-asterisk/
+  maximum_claim: tests_passed_package_scope

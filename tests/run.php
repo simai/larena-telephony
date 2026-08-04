@@ -8,6 +8,8 @@ use Larena\Telephony\Conformance\ComposerDependencyBoundary;
 use Larena\Telephony\Exceptions\ContractViolation;
 use Larena\Telephony\Support\CanonicalJson;
 use Larena\Telephony\Support\ContractVersion;
+use Larena\Telephony\Testing\AsteriskAmi\AsteriskAmiConformanceFixture;
+use Larena\Telephony\Testing\AsteriskAmi\AsteriskAmiCoreTestSuite;
 use Larena\Telephony\Testing\FakeAdapterConformanceFixture;
 use Larena\Telephony\ValueObjects\CallParty;
 use Larena\Telephony\ValueObjects\CallSession;
@@ -28,7 +30,7 @@ $check = static function (bool $condition, string $message) use (&$checks, &$fai
 };
 
 $suite = new AdapterConformanceSuite($root);
-foreach ([new FakeAdapterConformanceFixture(), new AcmeConformanceFixture()] as $fixture) {
+foreach ([new FakeAdapterConformanceFixture(), new AcmeConformanceFixture(), new AsteriskAmiConformanceFixture()] as $fixture) {
     $first = $suite->run($fixture);
     $second = $suite->run($fixture);
     $check($first->verdict === 'conformant', $first->adapterKey.' did not pass conformance');
@@ -43,6 +45,10 @@ foreach ([new FakeAdapterConformanceFixture(), new AcmeConformanceFixture()] as 
         $first->adapterKey.' contains failed conformance cases',
     );
 }
+
+$asteriskCore = (new AsteriskAmiCoreTestSuite($root))->run();
+$check(($asteriskCore['status'] ?? null) === 'passed', 'Asterisk AMI core fixture suite failed');
+$check(($asteriskCore['checks'] ?? 0) >= 50, 'Asterisk AMI core fixture suite did not execute the frozen coverage');
 
 $versionRejected = false;
 try {

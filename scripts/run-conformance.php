@@ -6,23 +6,31 @@ use Acme\LarenaTelephonyDemo\AcmeConformanceFixture;
 use Larena\Telephony\Conformance\AdapterConformanceSuite;
 use Larena\Telephony\Conformance\ComposerDependencyBoundary;
 use Larena\Telephony\Support\CanonicalJson;
+use Larena\Telephony\Testing\AsteriskAmi\AsteriskAmiConformanceFixture;
 use Larena\Telephony\Testing\FakeAdapterConformanceFixture;
 
 $root = dirname(__DIR__);
 require $root.'/vendor/autoload.php';
 
 $mode = $argv[1] ?? '--run';
-if (!in_array($mode, ['--run', '--write', '--check'], true)) {
-    fwrite(STDERR, "Usage: php scripts/run-conformance.php [--run|--write|--check]\n");
+if (!in_array($mode, ['--run', '--write', '--check', '--g4-3-run', '--g4-3-write', '--g4-3-check'], true)) {
+    fwrite(STDERR, "Usage: php scripts/run-conformance.php [--run|--write|--check|--g4-3-run|--g4-3-write|--g4-3-check]\n");
     exit(2);
 }
+$g43 = str_starts_with($mode, '--g4-3-');
+$operation = $g43 ? '--'.substr($mode, strlen('--g4-3-')) : $mode;
 
 $suite = new AdapterConformanceSuite($root);
 $fixtures = [
     'fake-adapter-receipt.json' => new FakeAdapterConformanceFixture(),
     'independent-adapter-receipt.json' => new AcmeConformanceFixture(),
 ];
-$evidenceDir = $root.'/docs/project-management/evidence/g4-2-public-sdk-conformance';
+if ($g43) {
+    $fixtures['asterisk-ami-adapter-receipt.json'] = new AsteriskAmiConformanceFixture();
+}
+$evidenceDir = $g43
+    ? $root.'/docs/project-management/evidence/g4-3-telephony-core-asterisk'
+    : $root.'/docs/project-management/evidence/g4-2-public-sdk-conformance';
 $failures = [];
 $summary = [];
 
@@ -38,12 +46,12 @@ foreach ($fixtures as $filename => $fixture) {
     }
 
     $path = $evidenceDir.'/'.$filename;
-    if ($mode === '--write') {
+    if ($operation === '--write') {
         if (!is_dir($evidenceDir) && !mkdir($evidenceDir, 0775, true) && !is_dir($evidenceDir)) {
             throw new RuntimeException("Unable to create evidence directory {$evidenceDir}");
         }
         file_put_contents($path, $canonical);
-    } elseif ($mode === '--check') {
+    } elseif ($operation === '--check') {
         if (!is_file($path) || file_get_contents($path) !== $canonical) {
             $failures[] = $first->adapterKey.': stored receipt is missing or stale';
         }
@@ -100,9 +108,9 @@ $boundaryReport = [
 ];
 $boundaryPath = $evidenceDir.'/dependency-boundary.json';
 $boundaryText = CanonicalJson::encode($boundaryReport);
-if ($mode === '--write') {
+if ($operation === '--write') {
     file_put_contents($boundaryPath, $boundaryText);
-} elseif ($mode === '--check' && (!is_file($boundaryPath) || file_get_contents($boundaryPath) !== $boundaryText)) {
+} elseif ($operation === '--check' && (!is_file($boundaryPath) || file_get_contents($boundaryPath) !== $boundaryText)) {
     $failures[] = 'stored dependency-boundary receipt is missing or stale';
 }
 
@@ -110,6 +118,7 @@ $report = [
     'schema' => 'larena.telephony.conformance_run.v1',
     'status' => $failures === [] ? 'passed' : 'failed',
     'mode' => ltrim($mode, '-'),
+    'profile' => $g43 ? 'g4_3_core_asterisk' : 'g4_2_sdk',
     'suite_version' => \Larena\Telephony\Support\TelephonyContract::SUITE_VERSION,
     'required_case_count' => count(AdapterConformanceSuite::REQUIRED_CASES),
     'adapters' => $summary,

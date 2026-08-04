@@ -39,12 +39,14 @@ final class TelephonyContract
         'connection.degraded',
         'connection.disconnected',
         'call.created',
+        'call.dialing',
         'call.ringing',
         'call.answered',
         'call.bridged',
         'call.held',
         'call.resumed',
         'call.ended',
+        'call.failed',
     ];
 
     /** @var list<string> */

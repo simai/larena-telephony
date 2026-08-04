@@ -13,9 +13,16 @@ $required = [
     'composer.lock',
     'module.yaml',
     'src/Contracts/TelephonyAdapter.php',
+    'src/Contracts/EndpointRegistry.php',
+    'src/Contracts/CallSessionStore.php',
     'src/Conformance/AdapterConformanceSuite.php',
+    'src/Adapters/AsteriskAmi/AsteriskAmiAdapter.php',
     'src/Registry/AdapterRegistry.php',
+    'src/Registry/InMemoryEndpointRegistry.php',
+    'src/Runtime/EventIngressProcessor.php',
+    'src/Runtime/CallSessionProjector.php',
     'src/Testing/FakeTelephonyAdapter.php',
+    'src/Testing/AsteriskAmi/AsteriskAmiConformanceFixture.php',
     'tests/Fixtures/IndependentAdapter/composer.json',
 ];
 foreach ($required as $relative) {
