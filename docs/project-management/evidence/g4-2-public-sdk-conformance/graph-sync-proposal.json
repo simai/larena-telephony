@@ -20,7 +20,7 @@
       "id": "telephony_adapter_conformance_receipts",
       "operation": "attach_evidence_carrier",
       "outcome_id": "larena.outcome.telephony.adapter_call_control.v1",
-      "acceptance_id": "larena.acceptance.telephony.adapter_call_control.registers.v1",
+      "acceptance_id": "larena.acceptance.telephony.adapter_call_control.vertical_3e822f24f29e51e2.v1",
       "evidence_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/evidence-carrier.json"
     },
     {

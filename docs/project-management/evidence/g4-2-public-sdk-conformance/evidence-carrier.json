@@ -4,7 +4,7 @@
   "id": "larena.evidence.telephony.adapter_call_control.tests_passed.v1",
   "outcome_id": "larena.outcome.telephony.adapter_call_control.v1",
   "acceptance_ids": [
-    "larena.acceptance.telephony.adapter_call_control.registers.v1"
+    "larena.acceptance.telephony.adapter_call_control.vertical_3e822f24f29e51e2.v1"
   ],
   "layer": "tests_passed",
   "status": "proven",
