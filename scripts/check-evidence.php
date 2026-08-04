@@ -10,6 +10,7 @@ $required = [
     'fake-adapter-receipt.json',
     'independent-adapter-receipt.json',
     'dependency-boundary.json',
+    'evidence-carrier.json',
     'graph-sync-proposal.json',
     'tester-verdict.json',
 ];
@@ -59,6 +60,43 @@ if (is_file($proposalPath)) {
     $proposal = json_decode((string) file_get_contents($proposalPath), true, 512, JSON_THROW_ON_ERROR);
     if (($proposal['status'] ?? null) !== 'proposal_only') {
         $failures[] = 'graph_sync_must_remain_proposal_only';
+    }
+}
+
+$carrierPath = $evidence.'/evidence-carrier.json';
+if (is_file($carrierPath)) {
+    $carrier = json_decode((string) file_get_contents($carrierPath), true, 512, JSON_THROW_ON_ERROR);
+    if (($carrier['schema'] ?? null) !== 'larena.evidence_carrier.v1'
+        || ($carrier['layer'] ?? null) !== 'tests_passed'
+        || ($carrier['status'] ?? null) !== 'proven') {
+        $failures[] = 'evidence_carrier_contract_mismatch';
+    }
+    $repository = $carrier['bindings']['repositories'][0] ?? [];
+    if (($repository['revision'] ?? null) !== 'c6c5d39955935304ba03c176052ae4b074cd481f'
+        || ($repository['tree'] ?? null) !== '76c187bcf195b2f01084a6dc9ac53d334ce13c89') {
+        $failures[] = 'evidence_carrier_code_revision_mismatch';
+    }
+    foreach (($carrier['artifacts'] ?? []) as $artifact) {
+        $path = $root.'/'.($artifact['path'] ?? '');
+        if (str_contains((string) ($artifact['path'] ?? ''), '*')) {
+            continue;
+        }
+        if (!is_file($path) || 'sha256:'.hash_file('sha256', $path) !== ($artifact['sha256'] ?? null)) {
+            $failures[] = 'evidence_artifact_hash_mismatch:'.($artifact['id'] ?? 'unknown');
+        }
+    }
+    $review = $carrier['review'] ?? [];
+    $reviewPath = $root.'/'.($review['artifact_ref'] ?? '');
+    if (!is_file($reviewPath) || 'sha256:'.hash_file('sha256', $reviewPath) !== ($review['sha256'] ?? null)) {
+        $failures[] = 'evidence_review_hash_mismatch';
+    }
+    $testedRevision = (string) ($repository['revision'] ?? '');
+    $testedTree = (string) ($repository['tree'] ?? '');
+    $actualTree = [];
+    $treeExit = 0;
+    exec('git -C '.escapeshellarg($root).' show -s --format=%T '.escapeshellarg($testedRevision), $actualTree, $treeExit);
+    if ($treeExit !== 0 || ($actualTree[0] ?? null) !== $testedTree) {
+        $failures[] = 'evidence_repository_revision_unresolvable';
     }
 }
 

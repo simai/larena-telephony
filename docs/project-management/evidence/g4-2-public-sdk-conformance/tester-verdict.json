@@ -1,0 +1,33 @@
+{
+  "schema": "larena.telephony.g4_2_tester_verdict.v1",
+  "schema_version": "1.0.0",
+  "batch": "G4.2",
+  "verdict": "PASS_WITH_NOTES",
+  "reviewer_role": "tester_gatekeeper",
+  "independence": "self_technical_gatekeeper_not_independent_product_or_runtime_acceptance",
+  "tested_revision": "c6c5d39955935304ba03c176052ae4b074cd481f",
+  "tested_tree": "76c187bcf195b2f01084a6dc9ac53d334ce13c89",
+  "specification_revision": "9f95be6f1bf1d8d97de330321ccf9a41ce89ff24",
+  "receipt_refs": [
+    "docs/project-management/evidence/g4-2-public-sdk-conformance/fake-adapter-receipt.json",
+    "docs/project-management/evidence/g4-2-public-sdk-conformance/independent-adapter-receipt.json",
+    "docs/project-management/evidence/g4-2-public-sdk-conformance/dependency-boundary.json"
+  ],
+  "accepted_claims": [
+    "The public SDK and its conformance kit compile and pass PHPStan level 8 at the exact tested revision.",
+    "The fake and independently named Composer fixture adapters pass the same 14 public cases.",
+    "Adapter registration and conformance require no private Larena package or commercial entitlement.",
+    "Denied, duplicate, unsupported and uncertain command paths fail closed before false success.",
+    "Receipts are deterministic and redact raw secret and provider-payload diagnostics."
+  ],
+  "notes": [
+    "The third-party adapter is an independently packaged fixture maintained in the same local repository, not an independently reviewed vendor release.",
+    "Application installation, workspace composition, Asterisk and PBX behavior are outside G4.2."
+  ],
+  "blockers": [
+    "An independent reviewer has not accepted the package or fixture receipt.",
+    "The package is not yet composed into larena-workspace or the root Larena application.",
+    "Asterisk, remote connector, media, CRM and AI voice runtime remain unimplemented and unauthorized."
+  ],
+  "next_batch": "G4.2_cross_repository_evidence_intake_then_G4.3"
+}

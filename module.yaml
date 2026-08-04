@@ -1,6 +1,6 @@
 package: larena/telephony
 title: Larena Telephony
-status: implementation_in_progress
+status: sdk_conformance_implemented
 cluster: product-packages-and-external-adapters
 batch: g4-2-public-sdk-conformance
 features:

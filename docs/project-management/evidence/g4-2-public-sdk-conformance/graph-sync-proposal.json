@@ -1,0 +1,48 @@
+{
+  "schema": "larena.graph_sync_proposal.v1",
+  "schema_version": "1.0.0",
+  "status": "proposal_only",
+  "source": {
+    "repository": "simai/larena-telephony",
+    "revision": "c6c5d39955935304ba03c176052ae4b074cd481f",
+    "tree": "76c187bcf195b2f01084a6dc9ac53d334ce13c89",
+    "specification_revision": "9f95be6f1bf1d8d97de330321ccf9a41ce89ff24"
+  },
+  "proposals": [
+    {
+      "id": "telephony_public_sdk_repository_presence",
+      "operation": "record_repository_presence",
+      "package": "larena/telephony",
+      "proposed_state": "public_sdk_conformance_implemented",
+      "maximum_readiness": "tests_passed_package_scope"
+    },
+    {
+      "id": "telephony_adapter_conformance_receipts",
+      "operation": "attach_evidence_carrier",
+      "outcome_id": "larena.outcome.telephony.adapter_call_control.v1",
+      "acceptance_id": "larena.acceptance.telephony.adapter_call_control.registers.v1",
+      "evidence_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/evidence-carrier.json"
+    },
+    {
+      "id": "telephony_third_party_boundary",
+      "operation": "record_adapter_fixture_evidence",
+      "composer_package": "acme/larena-telephony-demo-adapter",
+      "direct_larena_dependencies": ["larena/telephony"],
+      "private_entitlement_required": false
+    }
+  ],
+  "must_not_promote": [
+    "workspace_presence",
+    "root_application_runtime",
+    "independently_accepted",
+    "pbx_connected",
+    "asterisk_reference_implemented",
+    "ai_voice_available",
+    "production_eligible"
+  ],
+  "apply_authority": "larena-specs_graph_owner_only_after_revision_and_schema_validation",
+  "nonclaims": [
+    "The package repository cannot write canonical Larena Specs or Mirai Graph state directly.",
+    "This proposal does not establish workspace, application, PBX, independent acceptance or production readiness."
+  ]
+}

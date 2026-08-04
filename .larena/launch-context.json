@@ -53,23 +53,24 @@
     "fake-adapter-receipt.json",
     "independent-adapter-receipt.json",
     "dependency-boundary.json",
+    "evidence-carrier.json",
     "graph-sync-proposal.json",
     "tester-verdict.json"
   ],
   "evidence_path": "docs/project-management/evidence/g4-2-public-sdk-conformance/",
   "graph_sync_proposal_path": "docs/project-management/evidence/g4-2-public-sdk-conformance/graph-sync-proposal.json",
-  "status": "implementation_in_progress",
+  "status": "implemented_pending_cross_repository_acceptance",
   "coding_allowed": true,
   "coding_started": true,
   "repository_enforcement_installed": true,
   "repository_reset_pre_codegen": false,
-  "review_completed": false,
+  "review_completed": true,
   "test_database_policy": {
     "environment": "not_applicable",
     "persistence": "forbidden",
     "reason": "G4.2 is SDK and in-memory conformance only"
   },
   "coding_branch": "codex/telephony-sdk-conformance",
-  "next_transition": "public_contracts_and_conformance_green",
+  "next_transition": "cross_repository_evidence_intake",
   "remote_push_status": "remote_not_created"
 }
