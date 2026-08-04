@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+set -eu
+
+run_composer() {
+  if [ -n "${LARENA_PHP_BIN:-}" ] && [ -n "${LARENA_COMPOSER_BIN:-}" ]; then
+    "$LARENA_PHP_BIN" "$LARENA_COMPOSER_BIN" "$@"
+  else
+    composer "$@"
+  fi
+}
+
+# A new repository has no implementation revision to which an evidence carrier
+# can bind. The first commit must pass every code/contract gate; the immediately
+# following evidence commit activates the full quality gate.
+if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
+  run_composer validate:larena
+  run_composer lint
+  run_composer analyse
+  run_composer test
+  run_composer conformance:check
+  run_composer scope:check
+  exit 0
+fi
+
+run_composer quality:gate

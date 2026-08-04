@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+set -eu
+
+if [ -n "${LARENA_PHP_BIN:-}" ] && [ -n "${LARENA_COMPOSER_BIN:-}" ]; then
+  "$LARENA_PHP_BIN" "$LARENA_COMPOSER_BIN" quality:gate
+else
+  composer quality:gate
+fi

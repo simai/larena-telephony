@@ -1,0 +1,16 @@
+package: larena/telephony
+title: Larena Telephony
+status: implementation_in_progress
+cluster: product-packages-and-external-adapters
+batch: g4-2-public-sdk-conformance
+features:
+  - telephony.adapter_registry
+runtime:
+  php: "^8.3"
+  laravel: "^13.0"
+  persistence: none_sdk_and_in_memory_conformance_only
+distribution:
+  visibility: public
+  license: Apache-2.0
+evidence:
+  path: docs/project-management/evidence/g4-2-public-sdk-conformance/

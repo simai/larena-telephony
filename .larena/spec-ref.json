@@ -1,0 +1,13 @@
+{
+  "schema": "larena.package_specs_reference.v1",
+  "package": "larena/telephony",
+  "specs_repo": "simai/larena-specs",
+  "specs_commit": "9f95be6f1bf1d8d97de330321ccf9a41ce89ff24",
+  "implementation_contract": "specs/project-management/larena-g4-1-adapter-ecosystem-contract.json",
+  "root_launch_record": "specs/project-management/larena-g4-2-telephony-sdk-conformance-launch.json",
+  "package_spec": "specs/packages/telephony/package.json",
+  "package_dna": "specs/packages/telephony/dna.json",
+  "features_index": "specs/packages/telephony/features.json",
+  "canonical_update_allowed": false,
+  "graph_sync_proposal_required": true
+}

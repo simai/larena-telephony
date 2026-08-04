@@ -1,0 +1,23 @@
+{
+  "name": "acme/larena-telephony-demo-adapter",
+  "description": "Independent conformance fixture for the public Larena Telephony adapter contract.",
+  "type": "library",
+  "license": "BSD-3-Clause",
+  "require": {
+    "php": "^8.3",
+    "illuminate/support": "^13.0",
+    "larena/telephony": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Acme\\LarenaTelephonyDemo\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Acme\\LarenaTelephonyDemo\\AcmeTelephonyServiceProvider"
+      ]
+    }
+  }
+}

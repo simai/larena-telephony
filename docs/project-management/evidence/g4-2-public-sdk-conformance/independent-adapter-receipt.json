@@ -1,0 +1,174 @@
+{
+    "adapter_key": "acme.demo",
+    "case_results": [
+        {
+            "case_id": "capability_truthfulness",
+            "failure": null,
+            "observed": {
+                "reason": "capability_handler_mismatch"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "command_access_before_dispatch",
+            "failure": null,
+            "observed": {
+                "dispatch_count": 0,
+                "status": "denied"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "command_idempotency",
+            "failure": null,
+            "observed": {
+                "dispatch_count": 1,
+                "status": "succeeded"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "contract_version_compatibility",
+            "failure": null,
+            "observed": {
+                "reason": "incompatible_contract_version"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "duplicate_and_reordered_event_idempotency",
+            "failure": null,
+            "observed": {
+                "acceptance": [
+                    true,
+                    false,
+                    true
+                ],
+                "ordered_event_types": [
+                    "call.created",
+                    "call.ringing"
+                ]
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "endpoint_schema_validation",
+            "failure": null,
+            "observed": {
+                "invalid_errors": [
+                    "unknown_endpoint_field:vendor_mode"
+                ],
+                "valid": true
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "health_and_degraded_state",
+            "failure": null,
+            "observed": {
+                "degraded": "degraded",
+                "healthy": "healthy"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "no_private_package_dependency",
+            "failure": null,
+            "observed": {
+                "base_package_self_check": false,
+                "commercial_entitlement_required": false,
+                "composer_package": "acme/larena-telephony-demo-adapter",
+                "direct_larena_dependencies": [
+                    "larena/telephony"
+                ],
+                "fingerprint": "sha256:c17231e605bd7e8304f16f9be8715e314f930b787a71025a0c4c9b9df412a222",
+                "private_access_required": false,
+                "requirements": {
+                    "illuminate/support": "^13.0",
+                    "larena/telephony": "^1.0",
+                    "php": "^8.3"
+                },
+                "status": "passed",
+                "violations": []
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "no_provider_name_branching_in_domain_runtime",
+            "failure": null,
+            "observed": {
+                "identity_pair": [
+                    "acme.demo",
+                    "vendor.equivalent"
+                ],
+                "signature": {
+                    "command_reason": "provider_acknowledged",
+                    "command_status": "succeeded",
+                    "endpoint_valid": true,
+                    "event_status": "accepted",
+                    "event_type": "call.ringing",
+                    "health_status": "healthy"
+                }
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "secret_and_provider_payload_redaction",
+            "failure": null,
+            "observed": {
+                "redacted_fingerprint": "sha256:746f9d203d156a1bf89caf6b3aa384826afb54b45fa2be4c3a907de41900c67d",
+                "secret_rejected": true
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "uncertain_provider_result_not_success",
+            "failure": null,
+            "observed": {
+                "is_success": false,
+                "status": "uncertain"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "unique_registration",
+            "failure": null,
+            "observed": {
+                "duplicate_reason": "duplicate_adapter_key",
+                "registered_key": "acme.demo"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "unknown_and_malformed_event_quarantine",
+            "failure": null,
+            "observed": {
+                "malformed": "malformed_provider_event",
+                "unknown": "unknown_provider_event"
+            },
+            "status": "passed"
+        },
+        {
+            "case_id": "unsupported_command_denial",
+            "failure": null,
+            "observed": {
+                "dispatch_count": 0,
+                "status": "unsupported"
+            },
+            "status": "passed"
+        }
+    ],
+    "composer_package": "acme/larena-telephony-demo-adapter",
+    "contract_version": "1.0.0",
+    "environment_fingerprint": "sha256:ad467c96130314db2955e31f24b792474f538090a186a7f8159d0c8cefef75e1",
+    "fixture_fingerprint": "sha256:80c1da30e0f55fddc6f04873741bda0cbfefb6e26c7a1cb6afc9a82aee62044e",
+    "nonclaims": [
+        "Conformance proves compatibility with the tested public contract and deterministic fixtures only.",
+        "It is not security certification, PBX connectivity, carrier approval, runtime acceptance or production eligibility."
+    ],
+    "package_version": "1.0.0",
+    "schema": "larena.telephony.compatibility_receipt.v1",
+    "schema_version": "1.0.0",
+    "suite_version": "1.0.0",
+    "verdict": "conformant"
+}

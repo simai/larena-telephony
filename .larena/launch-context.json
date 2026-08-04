@@ -1,0 +1,75 @@
+{
+  "schema": "larena.package_launch_context.v1",
+  "package": "larena/telephony",
+  "repository_class": "new_public_package_repository",
+  "repository_contains_prior_implementation": false,
+  "launch_record_ref": "specs/project-management/larena-g4-2-telephony-sdk-conformance-launch.json",
+  "specs_repo": "simai/larena-specs",
+  "specs_commit": "9f95be6f1bf1d8d97de330321ccf9a41ce89ff24",
+  "specs_tree": "5564ccbd32349c47349bb97e34192be1d37deda8",
+  "base_commit": null,
+  "branch": "codex/telephony-sdk-conformance",
+  "selected_features": [
+    "telephony.adapter_registry"
+  ],
+  "allowed_paths": [
+    ".github/workflows/larena-package-ci.yml",
+    ".githooks/*",
+    ".gitignore",
+    ".larena/*",
+    "LICENSE",
+    "README.md",
+    "composer.json",
+    "composer.lock",
+    "module.yaml",
+    "phpstan.neon.dist",
+    "src/**",
+    "scripts/**",
+    "tests/**",
+    "tools/**",
+    "docs/project-management/evidence/g4-2-public-sdk-conformance/**"
+  ],
+  "forbidden_paths": [
+    "database/**",
+    "config/secrets*",
+    "src/Adapters/Asterisk/**",
+    "src/AiVoice/**",
+    "src/Media/**",
+    "src/RemoteConnector/**"
+  ],
+  "forbidden_behavior": [
+    "private_larena_dependency_or_entitlement_for_registration_or_conformance",
+    "provider_name_branching_in_domain_runtime",
+    "raw_secret_or_provider_payload_in_descriptor_diagnostic_or_receipt",
+    "live_pbx_or_network_access",
+    "persistent_storage_or_migration",
+    "asterisk_media_crm_or_ai_voice_runtime",
+    "remote_repository_creation_push_release_or_deploy",
+    "direct_larena_specs_update_by_package_code"
+  ],
+  "required_evidence_files": [
+    "implementation-summary.md",
+    "tests.md",
+    "fake-adapter-receipt.json",
+    "independent-adapter-receipt.json",
+    "dependency-boundary.json",
+    "graph-sync-proposal.json",
+    "tester-verdict.json"
+  ],
+  "evidence_path": "docs/project-management/evidence/g4-2-public-sdk-conformance/",
+  "graph_sync_proposal_path": "docs/project-management/evidence/g4-2-public-sdk-conformance/graph-sync-proposal.json",
+  "status": "implementation_in_progress",
+  "coding_allowed": true,
+  "coding_started": true,
+  "repository_enforcement_installed": true,
+  "repository_reset_pre_codegen": false,
+  "review_completed": false,
+  "test_database_policy": {
+    "environment": "not_applicable",
+    "persistence": "forbidden",
+    "reason": "G4.2 is SDK and in-memory conformance only"
+  },
+  "coding_branch": "codex/telephony-sdk-conformance",
+  "next_transition": "public_contracts_and_conformance_green",
+  "remote_push_status": "remote_not_created"
+}
