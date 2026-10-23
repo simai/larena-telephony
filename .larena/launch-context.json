@@ -49,7 +49,9 @@
     "AUTHORS",
     "CITATION.cff",
     "REUSE.toml",
-    "composer.json"
+    "composer.json",
+    "docs/project-management/evidence/g4-2-public-sdk-conformance/fake-adapter-receipt.json",
+    "docs/project-management/evidence/g4-2-public-sdk-conformance/evidence-carrier.json"
   ],
   "forbidden_paths": [
     "database/**",

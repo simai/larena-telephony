@@ -79,7 +79,7 @@
       "id": "telephony_g4_3_fake_adapter_receipt",
       "kind": "test_receipt",
       "path": "docs/project-management/evidence/g4-3-telephony-core-asterisk/fake-adapter-receipt.json",
-      "sha256": "sha256:f1ca48d397493f6866b234fe012545795eea64de34c35253ed468f67e5135fe6"
+      "sha256": "sha256:40456a8c60d43a64e1b83daa7e907768aa94815df8002be88d4367691d464387"
     },
     {
       "id": "telephony_g4_3_independent_adapter_receipt",
@@ -91,13 +91,13 @@
       "id": "telephony_g4_3_asterisk_adapter_receipt",
       "kind": "test_receipt",
       "path": "docs/project-management/evidence/g4-3-telephony-core-asterisk/asterisk-ami-adapter-receipt.json",
-      "sha256": "sha256:ac5bc471480206b99d398ed1dcd09c8f3a2a983540b1140046fbc54b59d6560b"
+      "sha256": "sha256:751e46fb5879de7523b1d5a884165cb5f6206fe4c68c97af31fb147c5fab1264"
     },
     {
       "id": "telephony_g4_3_asterisk_core_receipt",
       "kind": "test_receipt",
       "path": "docs/project-management/evidence/g4-3-telephony-core-asterisk/asterisk-ami-core-receipt.json",
-      "sha256": "sha256:0f1167afe92460084c0fe0bbe6ff0c4122d3dbc711b9beac32d19322d4c726eb"
+      "sha256": "sha256:a9356806c62198145e234abfc966c32551106be1fd46d225298ee860171a3f84"
     },
     {
       "id": "telephony_g4_3_dependency_boundary",
@@ -133,7 +133,7 @@
       "repository": "simai/larena-telephony",
       "tested_revision": "7bc7852ad4d29bb2c168cb00ec4332af10072619",
       "artifact_ref": "docs/project-management/evidence/g4-3-telephony-core-asterisk/fake-adapter-receipt.json",
-      "sha256": "sha256:f1ca48d397493f6866b234fe012545795eea64de34c35253ed468f67e5135fe6"
+      "sha256": "sha256:40456a8c60d43a64e1b83daa7e907768aa94815df8002be88d4367691d464387"
     },
     {
       "id": "telephony_g4_3_independent_adapter_integration",
@@ -153,7 +153,7 @@
       "repository": "simai/larena-telephony",
       "tested_revision": "7bc7852ad4d29bb2c168cb00ec4332af10072619",
       "artifact_ref": "docs/project-management/evidence/g4-3-telephony-core-asterisk/asterisk-ami-adapter-receipt.json",
-      "sha256": "sha256:ac5bc471480206b99d398ed1dcd09c8f3a2a983540b1140046fbc54b59d6560b"
+      "sha256": "sha256:751e46fb5879de7523b1d5a884165cb5f6206fe4c68c97af31fb147c5fab1264"
     },
     {
       "id": "telephony_g4_3_core_positive",
@@ -163,7 +163,7 @@
       "repository": "simai/larena-telephony",
       "tested_revision": "7bc7852ad4d29bb2c168cb00ec4332af10072619",
       "artifact_ref": "docs/project-management/evidence/g4-3-telephony-core-asterisk/asterisk-ami-core-receipt.json",
-      "sha256": "sha256:0f1167afe92460084c0fe0bbe6ff0c4122d3dbc711b9beac32d19322d4c726eb"
+      "sha256": "sha256:a9356806c62198145e234abfc966c32551106be1fd46d225298ee860171a3f84"
     },
     {
       "id": "telephony_g4_3_failure_injection",
@@ -173,7 +173,7 @@
       "repository": "simai/larena-telephony",
       "tested_revision": "7bc7852ad4d29bb2c168cb00ec4332af10072619",
       "artifact_ref": "docs/project-management/evidence/g4-3-telephony-core-asterisk/asterisk-ami-core-receipt.json",
-      "sha256": "sha256:0f1167afe92460084c0fe0bbe6ff0c4122d3dbc711b9beac32d19322d4c726eb"
+      "sha256": "sha256:a9356806c62198145e234abfc966c32551106be1fd46d225298ee860171a3f84"
     },
     {
       "id": "telephony_g4_3_metamorphic_replay",
@@ -183,7 +183,7 @@
       "repository": "simai/larena-telephony",
       "tested_revision": "7bc7852ad4d29bb2c168cb00ec4332af10072619",
       "artifact_ref": "docs/project-management/evidence/g4-3-telephony-core-asterisk/asterisk-ami-core-receipt.json",
-      "sha256": "sha256:0f1167afe92460084c0fe0bbe6ff0c4122d3dbc711b9beac32d19322d4c726eb"
+      "sha256": "sha256:a9356806c62198145e234abfc966c32551106be1fd46d225298ee860171a3f84"
     }
   ],
   "review": {

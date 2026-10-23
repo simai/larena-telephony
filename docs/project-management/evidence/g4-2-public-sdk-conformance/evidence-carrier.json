@@ -67,7 +67,7 @@
       "id": "fake_adapter_receipt",
       "kind": "test_receipt",
       "path": "docs/project-management/evidence/g4-2-public-sdk-conformance/fake-adapter-receipt.json",
-      "sha256": "sha256:f1ca48d397493f6866b234fe012545795eea64de34c35253ed468f67e5135fe6"
+      "sha256": "sha256:40456a8c60d43a64e1b83daa7e907768aa94815df8002be88d4367691d464387"
     },
     {
       "id": "independent_adapter_receipt",
@@ -103,7 +103,7 @@
       "repository": "simai/larena-telephony",
       "tested_revision": "a087b3e1b23be4cec5c8bcde9408628851f32300",
       "artifact_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/fake-adapter-receipt.json",
-      "sha256": "sha256:f1ca48d397493f6866b234fe012545795eea64de34c35253ed468f67e5135fe6"
+      "sha256": "sha256:40456a8c60d43a64e1b83daa7e907768aa94815df8002be88d4367691d464387"
     },
     {
       "id": "independent_adapter.integration",
@@ -133,7 +133,7 @@
       "repository": "simai/larena-telephony",
       "tested_revision": "a087b3e1b23be4cec5c8bcde9408628851f32300",
       "artifact_ref": "docs/project-management/evidence/g4-2-public-sdk-conformance/fake-adapter-receipt.json",
-      "sha256": "sha256:f1ca48d397493f6866b234fe012545795eea64de34c35253ed468f67e5135fe6"
+      "sha256": "sha256:40456a8c60d43a64e1b83daa7e907768aa94815df8002be88d4367691d464387"
     }
   ],
   "review": {

@@ -160,7 +160,7 @@
     "composer_package": "larena/telephony",
     "contract_version": "1.0.0",
     "environment_fingerprint": "sha256:ad467c96130314db2955e31f24b792474f538090a186a7f8159d0c8cefef75e1",
-    "fixture_fingerprint": "sha256:f3db845be9a5233f8b4603f2d3b017009ede96f2d32ef95c1190c7e051ced762",
+    "fixture_fingerprint": "sha256:55071ca1428157afcecd847d8d7e01d36e0171d3823a31c595ad9932be39a3ef",
     "nonclaims": [
         "Conformance proves compatibility with the tested public contract and deterministic fixtures only.",
         "It is not security certification, PBX connectivity, carrier approval, runtime acceptance or production eligibility."
