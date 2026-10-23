@@ -43,7 +43,13 @@
     "scripts/validate-larena-package.php",
     "tests/run.php",
     "tools/larena-scope-check.php",
-    "docs/project-management/evidence/g4-3-telephony-core-asterisk/**"
+    "docs/project-management/evidence/g4-3-telephony-core-asterisk/**",
+    "LICENSE",
+    "NOTICE",
+    "AUTHORS",
+    "CITATION.cff",
+    "REUSE.toml",
+    "composer.json"
   ],
   "forbidden_paths": [
     "database/**",
