@@ -29,7 +29,7 @@
         "conformance": {
             "adapter_key": "larena.asterisk_ami",
             "case_count": 14,
-            "receipt_fingerprint": "sha256:751e46fb5879de7523b1d5a884165cb5f6206fe4c68c97af31fb147c5fab1264",
+            "receipt_fingerprint": "sha256:e57a04dba9d33525621e133973a81f368ce45f6e813a8cb00c30619e93fee52c",
             "verdict": "conformant"
         },
         "event_projection": {
