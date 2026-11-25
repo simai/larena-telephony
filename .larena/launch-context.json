@@ -51,7 +51,8 @@
     "REUSE.toml",
     "composer.json",
     "docs/project-management/evidence/g4-2-public-sdk-conformance/fake-adapter-receipt.json",
-    "docs/project-management/evidence/g4-2-public-sdk-conformance/evidence-carrier.json"
+    "docs/project-management/evidence/g4-2-public-sdk-conformance/evidence-carrier.json",
+    "scripts/check-delivery-manifest.php"
   ],
   "forbidden_paths": [
     "database/**",

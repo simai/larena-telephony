@@ -20,3 +20,18 @@ distribution:
 evidence:
   path: docs/project-management/evidence/g4-3-telephony-core-asterisk/
   maximum_claim: tests_passed_package_scope
+delivery:
+  publisher: simai
+  distribution: open
+  license: Apache-2.0
+  requires:
+    larena: dev-main
+    packages: {}
+  capabilities:
+    - larena.capability.telephony.advanced_operations
+    - larena.capability.telephony.ai_voice_orchestration
+    - larena.capability.telephony.base
+    - larena.capability.telephony.enterprise_operations
+  requires_capabilities: []
+  data_on_removal: none
+  migrations_reversible: true
